@@ -1,7 +1,8 @@
-import { Component, ViewChild } from '@angular/core';
-import { RestApiService } from './service/rest-api.service';
+import { ViewChild, Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
+import { RestApiService } from '../service/rest-api.service';
+
 
 export interface TableElement {
   id: string;
@@ -11,12 +12,11 @@ export interface TableElement {
 }
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
 })
-
-export class AppComponent {
+export class HomeComponent implements OnInit {
 
   Data: TableElement[];
   col: string[] = ['id', 'name', 'email', 'website'];
@@ -30,5 +30,8 @@ export class AppComponent {
         this.dataSource.paginator = this.paginator;
       }, 0);
     })
+  }
+
+  ngOnInit(): void {
   }
 }
