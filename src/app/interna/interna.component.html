@@ -1,12 +1,20 @@
-<div class="container">
-    <div class="row">
-        <div class="col-md-6 offset-md-4" class="text-center">
-            <!-- FORMULARIO DE REGISTRO -->
-            <form [formGroup]="register">
-                <div class="container">
-                    <div class="form-row">
+<div class="container-md">
+    <div class="row align-items-center">
+        <div class="col-4"></div>
+        <div class="col-4">
+            
+            <div class="card text-center">
+                
+                <div class="card-header">
+                    <div mat-card-avatar><mat-icon>library_add</mat-icon></div>
+                    <h2>Registrar nuevo post</h2>
+                </div>
+
+                <div class="card-body">
+                    <!-- FORMULARIO DE REGISTRO -->
+                    <form [formGroup]="register">
                         <!-- TITULO -->
-                        <div class="form-group col-md-4">
+                        <div class="form-group col-md-12">
                             <mat-form-field appearance="standard">
                                 <mat-label>Titulo:</mat-label>
                                 <input matInput placeholder="Titulo" formControlName="title" [ngClass]="{'is-invalid': submitted && f.title.errors}" required autocomplete="off">
@@ -18,7 +26,7 @@
                         </div>
 
                         <!-- CUERPO -->
-                        <div class="form-group col-md-4">
+                        <div class="form-group col-md-12">
                             <mat-form-field appearance="standard">
                                 <mat-label>Cuerpo o descripcion:</mat-label>
                                 <input matInput placeholder="Descripcion del post" formControlName="body" [ngClass]="{'is-invalid': submitted && f.body.errors}" required autocomplete="off">
@@ -30,7 +38,7 @@
                         </div>
 
                         <!-- USER REGISTER -->
-                        <div class="form-group col-md-4">
+                        <div class="form-group col-md-12">
                             <mat-form-field appearance="standard">
                                 <mat-label>UserId:</mat-label>
                                 <input matInput placeholder="Example 1" formControlName="userId" [ngClass]="{'is-invalid': submitted && f.userId.errors}" required autocomplete="off">
@@ -40,14 +48,16 @@
                                 </mat-error>
                             </mat-form-field>
                         </div>
-
-                    </div>
+                    </form>
                 </div>
-
-                <button mat-flat-button color="primary" (click)="guardar()">
-                    <mat-icon matSuffix>open_in_browser</mat-icon> Guardar
-                </button>
-            </form>
+                
+                <div class="card-footer text-center">
+                    <button mat-flat-button color="primary" (click)="guardar()">
+                        <mat-icon matSuffix>open_in_browser</mat-icon> Guardar
+                    </button>
+                </div>
+            </div>
         </div>
+        <div class="col-4"></div>
     </div>
 </div>

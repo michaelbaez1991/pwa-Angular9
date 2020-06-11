@@ -15,12 +15,9 @@
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', function() {
         navigator.serviceWorker.register('/ngsw-worker.js').then(function(registration) {
-          // Si es exitoso
-          alert('SW registrado correctamente');
-        }, function(err) {
-          // Si falla
-          // console.log('SW fallo', err);
           alert("Esta trabajando sin conexion a internet");
+        }, function(err) {
+          console.log('Fallo en el service worker');
         });
       });
     }
