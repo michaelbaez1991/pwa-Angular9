@@ -1,1 +1,53 @@
-<p>interna works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-4" class="text-center">
+            <!-- FORMULARIO DE REGISTRO -->
+            <form [formGroup]="register">
+                <div class="container">
+                    <div class="form-row">
+                        <!-- TITULO -->
+                        <div class="form-group col-md-4">
+                            <mat-form-field appearance="standard">
+                                <mat-label>Titulo:</mat-label>
+                                <input matInput placeholder="Titulo" formControlName="title" [ngClass]="{'is-invalid': submitted && f.title.errors}" required autocomplete="off">
+                                <mat-icon matSuffix>recent_actors</mat-icon>
+                                <mat-error *ngIf="title.hasError('required')">
+                                    El titulo es <strong>requerido</strong>
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+
+                        <!-- CUERPO -->
+                        <div class="form-group col-md-4">
+                            <mat-form-field appearance="standard">
+                                <mat-label>Cuerpo o descripcion:</mat-label>
+                                <input matInput placeholder="Descripcion del post" formControlName="body" [ngClass]="{'is-invalid': submitted && f.body.errors}" required autocomplete="off">
+                                <mat-icon matSuffix>text_format</mat-icon>
+                                <mat-error *ngIf="body.hasError('required')">
+                                    La descripcion es <strong>requerida</strong>
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+
+                        <!-- USER REGISTER -->
+                        <div class="form-group col-md-4">
+                            <mat-form-field appearance="standard">
+                                <mat-label>UserId:</mat-label>
+                                <input matInput placeholder="Example 1" formControlName="userId" [ngClass]="{'is-invalid': submitted && f.userId.errors}" required autocomplete="off">
+                                <mat-icon matSuffix>text_format</mat-icon>
+                                <mat-error *ngIf="userId.hasError('required')">
+                                    La id del usuario es <strong>requerido</strong>
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+
+                    </div>
+                </div>
+
+                <button mat-flat-button color="primary" (click)="guardar()">
+                    <mat-icon matSuffix>open_in_browser</mat-icon> Guardar
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
